@@ -7,6 +7,11 @@ import chatWebService from '../services/chatWebService';
 const HomePage: React.FC = () => {
   useEffect(() => {
     chatWebService.connect();
+
+    // Cleanup function to disconnect when component unmounts
+    return () => {
+      chatWebService.disconnect();
+    };
   }, []);
 
   const footerItems = ['Pro', 'Enterprise', 'Store', 'Blog', 'Careers', 'English (English)'];
