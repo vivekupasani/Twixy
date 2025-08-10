@@ -1,42 +1,115 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.App {
+  height: 100vh;
+  width: 100vw;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  overflow: hidden;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Responsive design */
+@media (max-width: 768px) {
+  .side-bar-button {
+    padding: 8px !important;
+  }
+  
+  .search-container {
+    width: 95% !important;
+    max-width: 500px !important;
+  }
+  
+  .chat-container {
+    padding: 16px !important;
+  }
+  
+  .question-title {
+    font-size: 28px !important;
+  }
 }
 
-@keyframes logo-spin {
+/* Hover effects */
+.side-bar-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.search-bar-button:hover {
+  transform: translateY(-1px);
+}
+
+.submit-button:hover {
+  background-color: #1890ff;
+  transform: scale(1.05);
+}
+
+/* Focus states */
+input:focus {
+  outline: none;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Loading animation for skeletons */
+.skeleton {
+  background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }
 
-.card {
-  padding: 2em;
+/* Markdown content styling */
+.markdown-content {
+  line-height: 1.6;
 }
 
-.read-the-docs {
-  color: #888;
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.markdown-content p {
+  margin-bottom: 1em;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25em;
+}
+
+.markdown-content code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.markdown-content pre {
+  overflow-x: auto;
+  margin: 1em 0;
 }
