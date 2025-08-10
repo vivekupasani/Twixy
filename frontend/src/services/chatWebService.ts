@@ -95,28 +95,6 @@ class ChatWebService {
       }
     };
   }
-
-  onConnectionState(callback: (isConnected: boolean) => void): () => void {
-    this.connectionStateCallbacks.push(callback);
-    return () => {
-      const index = this.connectionStateCallbacks.indexOf(callback);
-      if (index > -1) {
-        this.connectionStateCallbacks.splice(index, 1);
-      }
-    };
-  }
-
-  clearAllCallbacks(): void {
-    this.searchResultCallbacks = [];
-    this.contentCallbacks = [];
-    this.connectionStateCallbacks = [];
-  }
-
-  // Clean up method for when the app is closing or component unmounting
-  cleanup(): void {
-    this.disconnect();
-    this.clearAllCallbacks();
-  }
 }
 
 export default ChatWebService.getInstance();
