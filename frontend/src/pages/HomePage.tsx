@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { AppColors } from '../theme/colors';
 import SideBar from '../components/SideBar';
 import SearchSection from '../components/SearchSection';
+import ConnectionStatus from '../components/ConnectionStatus';
 import chatWebService from '../services/chatWebService';
 
 const HomePage: React.FC = () => {
@@ -17,16 +18,17 @@ const HomePage: React.FC = () => {
   const footerItems = ['Pro', 'Enterprise', 'Store', 'Blog', 'Careers', 'English (English)'];
 
   return (
-    <div 
+    <div
       style={{
         display: 'flex',
         height: '100vh',
         backgroundColor: AppColors.background
       }}
     >
+      <ConnectionStatus />
       <SideBar />
-      
-      <div 
+
+      <div
         style={{
           flex: 1,
           display: 'flex',
@@ -37,8 +39,8 @@ const HomePage: React.FC = () => {
         <div style={{ flex: 1 }}>
           <SearchSection />
         </div>
-        
-        <footer 
+
+        <footer
           style={{
             padding: '16px 0',
             display: 'flex',
