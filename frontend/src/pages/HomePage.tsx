@@ -9,8 +9,16 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     chatWebService.connect();
 
+    // Handle browser close/refresh
+    const handleBeforeUnload = () => {
+      chatWebService.disconnect();
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
     // Cleanup function to disconnect when component unmounts
     return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
       chatWebService.disconnect();
     };
   }, []);
